@@ -3,23 +3,17 @@ package com.siriolibanes.sg.persona;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.SequenceGenerator;
+
+import com.siriolibanes.sg.base.Entidad;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @MappedSuperclass
-public class Persona {
-
-    @Id
-    @SequenceGenerator(name = "persona_sequence", sequenceName = "persona_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "persona_sequence")
-    @Column(name = "id", updatable = false)
-    private Long id;
+public class Persona extends Entidad {
 
     @Column(nullable = false)
     private String nombre;
