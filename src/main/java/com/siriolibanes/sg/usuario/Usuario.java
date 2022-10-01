@@ -9,7 +9,7 @@ import com.siriolibanes.sg.persona.Persona;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Entity(name = "Usuario")
+@Entity
 @Table
 @Data()
 @EqualsAndHashCode(callSuper = true)

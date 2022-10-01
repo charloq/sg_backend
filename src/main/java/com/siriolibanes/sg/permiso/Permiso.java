@@ -9,7 +9,7 @@ import com.siriolibanes.sg.base.Entidad;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Entity(name = "Permiso")
+@Entity
 @Table
 @Data
 @EqualsAndHashCode(callSuper = true)

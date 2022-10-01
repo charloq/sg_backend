@@ -12,7 +12,7 @@ import com.siriolibanes.sg.persona.Persona;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Entity(name = "Jugador")
+@Entity
 @Table
 @Data
 @EqualsAndHashCode(callSuper = true)

@@ -11,7 +11,7 @@ import com.siriolibanes.sg.base.Entidad;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Entity(name = "Rol")
+@Entity
 @Table
 @Data
 @EqualsAndHashCode(callSuper = true)
