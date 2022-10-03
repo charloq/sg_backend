@@ -2,9 +2,12 @@ package com.siriolibanes.sg.usuario;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import com.siriolibanes.sg.persona.Persona;
+import com.siriolibanes.sg.usuario.estado.Estado;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,11 +24,8 @@ public class Usuario extends Persona {
 	@Column(nullable = false)
 	private String password;
 
-	/*
-	 * @Override
-	 * public String toString() {
-	 * return "Usuario{" + "id=" + id + ", nombre='" + nombreUsuario + '\'' +
-	 * ", password='" + password + '\'' + '}';
-	 * }
-	 */
+	@Column(nullable = false)
+	@Enumerated(value = EnumType.STRING)
+	private Estado estado;
+
 }
