@@ -1,4 +1,4 @@
-package com.siriolibanes.sg.rol;
+package com.siriolibanes.sg.rol.controller;
 
 import java.util.List;
 
@@ -9,17 +9,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.siriolibanes.sg.rol.Rol;
+import com.siriolibanes.sg.rol.service.IRolService;
+
 @Controller
 @RequestMapping(path = "api/v1")
 public class RolController {
 
-    private final RolService service;
-
     @Autowired
-    public RolController(RolService service) {
-        super();
-        this.service = service;
-    }
+    private IRolService service;
 
     @GetMapping(path = "/roles")
     public List<Rol> getRoles() {

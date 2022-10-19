@@ -4,11 +4,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.siriolibanes.sg.usuario.repository.IUsuarioRepository;
+
 @Configuration
 public class UsuarioConfig {
 
 	@Bean
-	CommandLineRunner commandLineRunner(UsuarioRepository repository) {
+	CommandLineRunner commandLineRunner(IUsuarioRepository repository) {
 		return args -> {
 			/*
 			 * Usuario usuarioPrueba = new Usuario("UsuarioPrueba", "pass"); Usuario

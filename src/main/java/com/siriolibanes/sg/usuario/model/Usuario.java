@@ -1,13 +1,19 @@
-package com.siriolibanes.sg.usuario;
+package com.siriolibanes.sg.usuario.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.siriolibanes.sg.persona.Persona;
-import com.siriolibanes.sg.usuario.estado.Estado;
+import com.siriolibanes.sg.rol.Rol;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +24,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class Usuario extends Persona {
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String nombreUsuario;
 
 	@Column(nullable = false)
@@ -26,6 +32,9 @@ public class Usuario extends Persona {
 
 	@Column(nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private Estado estado;
+	private EstadoEnum estado;
 
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_id")
+	private Set<Rol> roles;
 }

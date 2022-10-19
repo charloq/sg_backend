@@ -21,13 +21,13 @@ public class Persona extends Entidad {
     @Column(nullable = true)
     private String apellido;
 
-    @Column(nullable = true)
+    @Column(nullable = true, unique = true)
     private String dni;
 
     @Column(nullable = true)
     private Date fechaNacimiento;
 
-    @Column(nullable = true)
+    @Column(nullable = true, unique = true)
     private String email;
 
     @Column(nullable = true)
