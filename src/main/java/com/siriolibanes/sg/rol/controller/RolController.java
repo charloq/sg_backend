@@ -24,11 +24,6 @@ public class RolController {
         return service.getRoles();
     }
 
-    @GetMapping(path = "/roles/by_nombre")
-    public List<Rol> getRolsByNombre(@RequestBody String nombre) {
-        return service.findByNombre(nombre);
-    }
-
     @PostMapping(path = "/roles/save_rol")
     public Rol saveRol(@RequestBody Rol rol) {
         return service.saveRol(rol);

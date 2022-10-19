@@ -9,17 +9,13 @@ import com.siriolibanes.sg.rol.Rol;
 import com.siriolibanes.sg.rol.repository.IRolRepository;
 
 @Service
-public class RolService {
+public class RolService implements IRolService {
 
     @Autowired
     private IRolRepository repository;
 
     public List<Rol> getRoles() {
         return repository.findAll();
-    }
-
-    public List<Rol> findByNombre(String nombre) {
-        return repository.findByNombre(nombre);
     }
 
     public Rol saveRol(Rol rol) {

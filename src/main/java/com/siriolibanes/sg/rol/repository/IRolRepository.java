@@ -10,5 +10,4 @@ import com.siriolibanes.sg.rol.Rol;
 @Repository
 public interface IRolRepository extends JpaRepository<Rol, Long> {
 
-    public List<Rol> findByNombre(String nombre);
 }
