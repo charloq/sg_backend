@@ -13,23 +13,23 @@ import com.siriolibanes.sg.usuario.model.Usuario;
 import com.siriolibanes.sg.usuario.service.IUsuarioService;
 
 @RestController
-@RequestMapping(path = "api/v1")
+@RequestMapping(path = "api/v1/usuarios")
 public class UsuarioController {
 
 	@Autowired
 	private IUsuarioService service;
 
-	@GetMapping(path = "/usuarios")
+	@GetMapping
 	public List<Usuario> getUsuarios() {
 		return service.getUsuarios();
 	}
 
-	@GetMapping(path = "/usuarios/nombre")
+	@GetMapping(path = "/nombre")
 	public List<Usuario> findByNombreUsuario(@RequestBody String nombre) {
 		return service.findByNombreUsuario(nombre);
 	}
 
-	@PostMapping(path = "/usuarios/usuario")
+	@PostMapping(path = "/usuario")
 	public Usuario saveUsuario(@RequestBody Usuario usuario) {
 		return service.saveUsuario(usuario);
 	}

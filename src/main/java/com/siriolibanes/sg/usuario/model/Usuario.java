@@ -1,18 +1,16 @@
 package com.siriolibanes.sg.usuario.model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.siriolibanes.sg.persona.Persona;
+import com.siriolibanes.sg.persona.model.Persona;
 import com.siriolibanes.sg.rol.Rol;
 
 import lombok.Data;
@@ -31,10 +29,10 @@ public class Usuario extends Persona {
 	private String password;
 
 	@Column(nullable = false)
-	@Enumerated(value = EnumType.STRING)
-	private EstadoEnum estado;
+	private Boolean activo;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")
-	private Set<Rol> roles;
+	private List<Rol> roles;
+
 }

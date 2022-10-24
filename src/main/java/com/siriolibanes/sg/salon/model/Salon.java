@@ -1,4 +1,4 @@
-package com.siriolibanes.sg.rol;
+package com.siriolibanes.sg.salon.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,13 +9,13 @@ import com.siriolibanes.sg.base.Entidad;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+@Data
 @Entity
 @Table
-@Data
 @EqualsAndHashCode(callSuper = true)
-public class Rol extends Entidad {
+public class Salon extends Entidad {
 
     @Column(nullable = false)
-    private String autoridad;
+    private String nombre;
 
 }

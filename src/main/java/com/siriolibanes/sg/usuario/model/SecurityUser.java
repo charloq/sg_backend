@@ -2,7 +2,7 @@ package com.siriolibanes.sg.usuario.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,12 +25,11 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<Rol> roles = usuario.getRoles();
-        Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>(roles.size());
-        roles.forEach(rol -> {
-            grantedAuthorities.add(new SimpleGrantedAuthority(rol.getAutoridad().name()));
-        });
-        return grantedAuthorities;
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        for (Rol rol : usuario.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(rol.getAutoridad()));
+        }
+        return authorities;
     }
 
     @Override

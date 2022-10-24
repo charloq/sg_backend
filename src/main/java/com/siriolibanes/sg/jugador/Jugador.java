@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.siriolibanes.sg.deporte.Deporte;
-import com.siriolibanes.sg.persona.Persona;
+import com.siriolibanes.sg.persona.model.Persona;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

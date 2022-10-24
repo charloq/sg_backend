@@ -37,7 +37,7 @@ public class UsuarioService implements IUsuarioService {
 	@Override
 	public Usuario saveUsuario(Usuario usuario) {
 		Rol rol = new Rol();
-		rol.setAutoridad(RolEnum.JUGADOR);
+		rol.setAutoridad(RolEnum.INVITADO.name());
 		rolRepository.save(rol);
 		// TODO: Ver si Jugador debería ser un rol y/o tipo de Usuario
 		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));

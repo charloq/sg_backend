@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.siriolibanes.sg.rol.RolEnum;
@@ -21,8 +20,8 @@ import com.siriolibanes.sg.rol.RolEnum;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    // @Autowired
-    // private UserDetailsService userDetailService;
+    @Autowired
+    private UserDetailsService userDetailService;
 
     @Autowired
     private DataSource dataSource;
@@ -32,10 +31,11 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(auth -> {
-                    auth.antMatchers("/").permitAll();
-                    auth.antMatchers("/usuarios").hasRole(RolEnum.ADMIN.name());
+                    auth.mvcMatchers("/").permitAll();
+                    auth.mvcMatchers("/usuarios").hasRole(RolEnum.INVITADO.name());
                 })
-                // .userDetailsService(userDetailService)
+                .userDetailsService(userDetailService)
+                .headers(headers -> headers.frameOptions().sameOrigin())
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }

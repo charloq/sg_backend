@@ -1,4 +1,4 @@
-package com.siriolibanes.sg.persona;
+package com.siriolibanes.sg.persona.model;
 
 import java.util.Date;
 

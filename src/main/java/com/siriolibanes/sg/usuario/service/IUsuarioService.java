@@ -13,4 +13,5 @@ public interface IUsuarioService {
 	public Usuario saveUsuario(Usuario usuario);
 
 	public Usuario findOneByEmail(String email);
+
 }
