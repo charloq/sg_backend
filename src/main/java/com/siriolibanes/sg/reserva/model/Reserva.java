@@ -9,7 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.siriolibanes.sg.base.Entidad;
+import com.siriolibanes.sg.base.model.Entidad;
 import com.siriolibanes.sg.salon.model.Salon;
 import com.siriolibanes.sg.usuario.model.Usuario;
 

@@ -1,4 +1,4 @@
-package com.siriolibanes.sg.deporte;
+package com.siriolibanes.sg.deporte.model;
 
 import java.util.Set;
 
@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.siriolibanes.sg.base.Entidad;
+import com.siriolibanes.sg.base.model.Entidad;
 import com.siriolibanes.sg.jugador.Jugador;
 
 import lombok.Data;

@@ -1,5 +1,6 @@
 package com.siriolibanes.sg.usuario.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.siriolibanes.sg.persona.model.Persona;
-import com.siriolibanes.sg.rol.Rol;
+import com.siriolibanes.sg.rol.model.Rol;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -34,5 +35,11 @@ public class Usuario extends Persona {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")
 	private List<Rol> roles;
+
+	public Usuario() {
+		super();
+		this.roles = new ArrayList<Rol>();
+		this.activo = true;
+	}
 
 }

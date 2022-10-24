@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.siriolibanes.sg.rol.Rol;
+import com.siriolibanes.sg.rol.model.Rol;
 import com.siriolibanes.sg.rol.service.IRolService;
 
 @Controller

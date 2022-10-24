@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-import com.siriolibanes.sg.base.Entidad;
+import com.siriolibanes.sg.base.model.Entidad;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

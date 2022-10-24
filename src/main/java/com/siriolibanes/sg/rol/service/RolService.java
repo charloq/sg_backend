@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.siriolibanes.sg.rol.Rol;
+import com.siriolibanes.sg.rol.model.Rol;
 import com.siriolibanes.sg.rol.repository.IRolRepository;
 
 @Service

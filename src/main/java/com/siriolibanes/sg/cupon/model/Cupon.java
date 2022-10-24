@@ -1,6 +1,5 @@
-package com.siriolibanes.sg.permiso;
+package com.siriolibanes.sg.cupon.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -13,12 +12,6 @@ import lombok.EqualsAndHashCode;
 @Table
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Permiso extends Entidad {
-
-    @Column(nullable = false)
-    private String nombre;
-
-    @Column(nullable = true)
-    private String descripcion;
+public class Cupon extends Entidad {
 
 }

@@ -1,4 +1,4 @@
-package com.siriolibanes.sg.base;
+package com.siriolibanes.sg.base.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

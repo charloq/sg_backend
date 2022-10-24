@@ -2,7 +2,7 @@ package com.siriolibanes.sg.rol.service;
 
 import java.util.List;
 
-import com.siriolibanes.sg.rol.Rol;
+import com.siriolibanes.sg.rol.model.Rol;
 
 public interface IRolService {
     public List<Rol> getRoles();

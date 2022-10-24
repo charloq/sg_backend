@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.siriolibanes.sg.rol.RolEnum;
+import com.siriolibanes.sg.rol.model.RolEnum;
 
 @Configuration
 @EnableWebSecurity
@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(auth -> {
                     auth.mvcMatchers("/").permitAll();
-                    auth.mvcMatchers("/usuarios").hasRole(RolEnum.INVITADO.name());
+                    auth.mvcMatchers("/usuarios").hasRole(RolEnum.ADMIN.name());
                 })
                 .userDetailsService(userDetailService)
                 .headers(headers -> headers.frameOptions().sameOrigin())

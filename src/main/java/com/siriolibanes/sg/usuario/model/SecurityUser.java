@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.siriolibanes.sg.rol.Rol;
+import com.siriolibanes.sg.rol.model.Rol;
 
 public class SecurityUser implements UserDetails {
 
