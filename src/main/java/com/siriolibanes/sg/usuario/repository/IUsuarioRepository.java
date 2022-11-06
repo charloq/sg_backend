@@ -17,5 +17,8 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 	@Query("select u from Usuario u where u.email = :email")
 	Usuario findOneByEmail(@Param("email") String email);
 
-	
+	@Query("select u from Usuario u where u.email = :email and u.password = :password")
+	Usuario login(@Param("email") String email, @Param("password") String password);
+
+	Usuario getReferenceById(Long id);
 }

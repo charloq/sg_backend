@@ -29,7 +29,7 @@ public class Usuario extends Persona {
 	@Column(nullable = false)
 	private String password;
 
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "boolean default false")
 	private Boolean activo;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

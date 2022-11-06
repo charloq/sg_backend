@@ -20,7 +20,7 @@ import lombok.EqualsAndHashCode;
 public class Jugador extends Usuario {
 
     // TODO: Ver si acá la relación debería ser de muchos a muchos
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "deporte_id", nullable = false)
-    private Deporte deporte;
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "deporte_id", nullable = false)
+    // private Deporte deporte;
 }

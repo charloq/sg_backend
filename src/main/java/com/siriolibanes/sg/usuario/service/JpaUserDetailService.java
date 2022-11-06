@@ -20,7 +20,6 @@ public class JpaUserDetailService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        // TODO Auto-generated method stub
         Usuario usuario = usuarioRepository.findOneByEmail(email);
         if (usuario == null) {
             // TODO: ver si se tiene que hacer algo

@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.siriolibanes.sg.base.model.Entidad;
 
 import lombok.Data;
@@ -25,6 +26,7 @@ public class Persona extends Entidad {
     private String dni;
 
     @Column(nullable = true)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date fechaNacimiento;
 
     @Column(nullable = true, unique = true)

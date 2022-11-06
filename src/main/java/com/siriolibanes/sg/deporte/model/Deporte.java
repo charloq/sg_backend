@@ -22,6 +22,6 @@ public class Deporte extends Entidad {
     @Column(nullable = false)
     private String nombre;
 
-    @OneToMany(mappedBy = "deporte")
-    private Set<Jugador> jugadores;
+    // @OneToMany(mappedBy = "deporte")
+    // private Set<Jugador> jugadores;
 }

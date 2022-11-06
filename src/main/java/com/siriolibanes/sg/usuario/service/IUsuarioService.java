@@ -14,4 +14,11 @@ public interface IUsuarioService {
 
 	public Usuario findOneByEmail(String email);
 
+	public Usuario findOneById(Long id);
+
+	public Usuario login(String email, String password);
+
+	public Usuario updateUsuario(Usuario usuario, Long id);
+
+	public void deleteUsuario(Long id);
 }

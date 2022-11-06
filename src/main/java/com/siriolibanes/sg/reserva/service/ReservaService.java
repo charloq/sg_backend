@@ -1,5 +1,6 @@
 package com.siriolibanes.sg.reserva.service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -24,19 +25,23 @@ public class ReservaService implements IReservaService {
 
     @Override
     public Reserva saveReserva(Reserva reserva) {
-        //TODO: Aca va la logica para la reserva
+        // TODO: Aca va la logica para la reserva
+
+        // Valido reserva no sea del pasado
+        Date today = new Date();
+        if (reserva.getFecha().compareTo(today) < 0) {
+            return null;
+        }
         return reservaRepository.save(reserva);
     }
 
     @Override
     public List<Reserva> getReservasByRangoFechas(Date desde, Date hasta) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public List<Reserva> getReservasBySalonRangoFechas(Salon salon, Date desde, Date hasta) {
-        // TODO Auto-generated method stub
         return null;
     }
 
