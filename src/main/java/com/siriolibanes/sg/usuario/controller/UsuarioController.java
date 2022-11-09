@@ -1,5 +1,6 @@
 package com.siriolibanes.sg.usuario.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.siriolibanes.sg.rol.model.Rol;
+import com.siriolibanes.sg.usuario.model.LoginDAO;
 import com.siriolibanes.sg.usuario.model.Usuario;
 import com.siriolibanes.sg.usuario.service.IUsuarioService;
 
@@ -44,12 +47,17 @@ public class UsuarioController {
 	}
 
 	@PostMapping(path = "/login")
-	public Usuario login(@RequestParam("id") String email, @RequestParam("password") String password) {
-		return service.login(email, password);
+	public Usuario login(@RequestBody LoginDAO loginDAO) {
+		return service.login(loginDAO.getNombreUsuario(), loginDAO.getPassword());
 	}
 
 	@DeleteMapping(path = "usuario/{id}")
-	public void deleteUsuario(@RequestParam("id") Long id) {
+	public void deleteUsuario(@PathVariable("id") Long id) {
 		service.deleteUsuario(id);
+	}
+
+	@GetMapping(path = "/roles")
+	public List<Usuario> findByRoles(@RequestBody Rol[] roles) {
+		return service.findByRoles(Arrays.asList(roles));
 	}
 }

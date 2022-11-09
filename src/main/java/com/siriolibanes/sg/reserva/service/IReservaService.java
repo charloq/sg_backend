@@ -8,14 +8,16 @@ import com.siriolibanes.sg.salon.model.Salon;
 import com.siriolibanes.sg.usuario.model.Usuario;
 
 public interface IReservaService {
-    //TODO:Ver si por defecto las reservas son solo por usuario
-    public List<Reserva> getReservasByUsuario(Usuario usuario);
 
     public Reserva saveReserva(Reserva reserva);
 
-    public List<Reserva> getReservasByRangoFechas(Date desde, Date hasta);
-    
-    public List<Reserva> getReservasBySalonRangoFechas(Salon salon, Date desde, Date hasta);
+    List<Reserva> findByUsuario(Usuario usuario);
 
-    
+    List<Reserva> findByFecha(Date fecha);
+
+    List<Reserva> findBySalon(Salon salon);
+
+    List<Reserva> findByFechaAndSalon(Date fecha, Salon salon);
+
+    List<Reserva> findAll();
 }

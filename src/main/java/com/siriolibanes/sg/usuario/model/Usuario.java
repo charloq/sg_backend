@@ -29,8 +29,8 @@ public class Usuario extends Persona {
 	@Column(nullable = false)
 	private String password;
 
-	@Column(nullable = false, columnDefinition = "boolean default false")
-	private Boolean activo;
+	@Column(nullable = false)
+	private Boolean activo = true;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")

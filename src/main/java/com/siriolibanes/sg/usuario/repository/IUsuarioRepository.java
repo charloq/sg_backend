@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.siriolibanes.sg.rol.model.Rol;
 import com.siriolibanes.sg.usuario.model.Usuario;
 
 @Repository
@@ -21,4 +22,6 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 	Usuario login(@Param("email") String email, @Param("password") String password);
 
 	Usuario getReferenceById(Long id);
+
+	List<Usuario> findByRolesIn(List<Rol> roles);
 }

@@ -2,6 +2,7 @@ package com.siriolibanes.sg.usuario.service;
 
 import java.util.List;
 
+import com.siriolibanes.sg.rol.model.Rol;
 import com.siriolibanes.sg.usuario.model.Usuario;
 
 public interface IUsuarioService {
@@ -21,4 +22,8 @@ public interface IUsuarioService {
 	public Usuario updateUsuario(Usuario usuario, Long id);
 
 	public void deleteUsuario(Long id);
+
+	List<Usuario> findByRoles(List<Rol> roles);
+
+	public Usuario validarSocioInvitado(Long id);
 }

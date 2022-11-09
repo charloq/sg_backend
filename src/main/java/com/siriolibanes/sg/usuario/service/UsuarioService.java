@@ -37,15 +37,16 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public Usuario saveUsuario(Usuario usuario) {
-		Rol rol = new Rol();
-		rol.setAutoridad(RolEnum.ADMIN.name());
-		rolRepository.save(rol);
+		// Si viene sin roles, se crea como invitado
+		if (usuario.getRoles().isEmpty()) {
+			Rol rol = new Rol();
+			rol.setAutoridad(RolEnum.INVITADO.name());
+			rolRepository.save(rol);
+			usuario.setRoles(new ArrayList<Rol>());
+			usuario.getRoles().add(rol);
+		}
 		// TODO: Ver si Jugador debería ser un rol y/o tipo de Usuario
 		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-		if (usuario.getRoles().isEmpty()) {
-			usuario.setRoles(new ArrayList<Rol>());
-		}
-		usuario.getRoles().add(rol);
 
 		return usuarioRepository.save(usuario);
 	}
@@ -70,6 +71,7 @@ public class UsuarioService implements IUsuarioService {
 		// TODO: Acá validar que campos modificar
 		unUsuario.setApellido(usuario.getApellido());
 		unUsuario.setNombre(usuario.getNombre());
+		unUsuario.setEmail(usuario.getEmail());
 		unUsuario.setDni(usuario.getDni());
 		unUsuario.setActivo(usuario.getActivo());
 		unUsuario.setDireccion(usuario.getDireccion());
@@ -89,4 +91,23 @@ public class UsuarioService implements IUsuarioService {
 		usuarioRepository.deleteById(id);
 	}
 
+	@Override
+	public List<Usuario> findByRoles(List<Rol> roles) {
+		return usuarioRepository.findByRolesIn(roles);
+	}
+
+	@Override
+	public Usuario validarSocioInvitado(Long id) {
+		Usuario usuario = findOneById(id);
+		if (usuario == null) {
+			throw new IllegalArgumentException("No existe usuario para ese ID");
+		}
+		usuario.getRoles().forEach((Rol rol) -> {
+			if (rol.getAutoridad().equals(RolEnum.INVITADO.name())) {
+				// TODO: Validar que rol se debe asignar
+				rol.setAutoridad(RolEnum.ADMIN.name());
+			}
+		});
+		return usuario;
+	}
 }

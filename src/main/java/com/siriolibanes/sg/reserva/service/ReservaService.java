@@ -19,30 +19,45 @@ public class ReservaService implements IReservaService {
     private IReservaRepository reservaRepository;
 
     @Override
-    public List<Reserva> getReservasByUsuario(Usuario usuario) {
-        return reservaRepository.findByUsuario(usuario);
-    }
-
-    @Override
     public Reserva saveReserva(Reserva reserva) {
-        // TODO: Aca va la logica para la reserva
-
         // Valido reserva no sea del pasado
         Date today = new Date();
         if (reserva.getFecha().compareTo(today) < 0) {
             return null;
         }
+
+        // Valido si existe otra reserva
+        List<Reserva> reservas = this.findByFechaAndSalon(reserva.getFecha(), reserva.getSalon());
+        if (reservas != null && reservas.size() > 0) {
+            return null;
+        }
+
         return reservaRepository.save(reserva);
     }
 
     @Override
-    public List<Reserva> getReservasByRangoFechas(Date desde, Date hasta) {
-        return null;
+    public List<Reserva> findByFecha(Date fecha) {
+        return reservaRepository.findByFecha(fecha);
     }
 
     @Override
-    public List<Reserva> getReservasBySalonRangoFechas(Salon salon, Date desde, Date hasta) {
-        return null;
+    public List<Reserva> findByFechaAndSalon(Date fecha, Salon salon) {
+        return reservaRepository.findByFechaAndSalon(fecha, salon);
+    }
+
+    @Override
+    public List<Reserva> findBySalon(Salon salon) {
+        return reservaRepository.findBySalon(salon);
+    }
+
+    @Override
+    public List<Reserva> findByUsuario(Usuario usuario) {
+        return reservaRepository.findByUsuario(usuario);
+    }
+
+    @Override
+    public List<Reserva> findAll() {
+        return reservaRepository.findAll();
     }
 
 }
