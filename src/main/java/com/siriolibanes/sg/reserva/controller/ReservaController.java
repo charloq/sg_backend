@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.siriolibanes.sg.reserva.model.Reserva;
+import com.siriolibanes.sg.reserva.model.dao.ReservaDAO;
 import com.siriolibanes.sg.reserva.service.IReservaService;
 import com.siriolibanes.sg.salon.model.Salon;
 import com.siriolibanes.sg.usuario.model.Usuario;
@@ -24,12 +25,12 @@ public class ReservaController {
     private IReservaService reservaService;
 
     @GetMapping
-    public List<Reserva> findAll() {
+    public List<Reserva> getReservas() {
         return reservaService.findAll();
     }
 
     @PostMapping(path = "/reserva")
-    public Reserva saveReserva(Reserva reserva) {
+    public Reserva saveReserva(@RequestBody ReservaDAO reserva) {
         return reservaService.saveReserva(reserva);
     }
 

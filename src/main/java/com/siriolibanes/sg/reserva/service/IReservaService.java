@@ -4,12 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import com.siriolibanes.sg.reserva.model.Reserva;
+import com.siriolibanes.sg.reserva.model.dao.ReservaDAO;
 import com.siriolibanes.sg.salon.model.Salon;
 import com.siriolibanes.sg.usuario.model.Usuario;
 
 public interface IReservaService {
 
-    public Reserva saveReserva(Reserva reserva);
+    Reserva saveReserva(Reserva reserva);
 
     List<Reserva> findByUsuario(Usuario usuario);
 
@@ -20,4 +21,6 @@ public interface IReservaService {
     List<Reserva> findByFechaAndSalon(Date fecha, Salon salon);
 
     List<Reserva> findAll();
+
+    Reserva saveReserva(ReservaDAO reserva);
 }

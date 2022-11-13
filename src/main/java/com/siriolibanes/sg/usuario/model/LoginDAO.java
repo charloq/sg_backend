@@ -1,16 +1,8 @@
 package com.siriolibanes.sg.usuario.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class LoginDAO {
     private String nombreUsuario;
     private String password;

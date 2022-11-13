@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.siriolibanes.sg.base.model.Entidad;
 import com.siriolibanes.sg.salon.model.Salon;
 import com.siriolibanes.sg.usuario.model.Usuario;
@@ -23,6 +24,7 @@ import lombok.EqualsAndHashCode;
 public class Reserva extends Entidad {
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date fecha;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)

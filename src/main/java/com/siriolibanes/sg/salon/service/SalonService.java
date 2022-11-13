@@ -24,4 +24,9 @@ public class SalonService implements ISalonService {
         return salonRepository.save(salon);
     }
 
+    @Override
+    public Salon findById(Long id) {
+        return salonRepository.getReferenceById(id);
+    }
+
 }

@@ -9,4 +9,6 @@ public interface ISalonService {
     public Salon saveSalon(Salon salon);
 
     public List<Salon> getSalones();
+
+    public Salon findById(Long id);
 }

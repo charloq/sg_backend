@@ -15,7 +15,7 @@ public interface IUsuarioService {
 
 	public Usuario findOneByEmail(String email);
 
-	public Usuario findOneById(Long id);
+	public Usuario findById(Long id);
 
 	public Usuario login(String email, String password);
 

@@ -82,8 +82,8 @@ public class UsuarioService implements IUsuarioService {
 	}
 
 	@Override
-	public Usuario findOneById(Long id) {
-		return usuarioRepository.getReferenceById(id);
+	public Usuario findById(Long id) {
+		return usuarioRepository.findById(id).get();
 	}
 
 	@Override
@@ -98,7 +98,7 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public Usuario validarSocioInvitado(Long id) {
-		Usuario usuario = findOneById(id);
+		Usuario usuario = findById(id);
 		if (usuario == null) {
 			throw new IllegalArgumentException("No existe usuario para ese ID");
 		}
