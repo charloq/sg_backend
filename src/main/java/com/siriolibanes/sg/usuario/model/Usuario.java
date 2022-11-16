@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.siriolibanes.sg.persona.model.Persona;
 import com.siriolibanes.sg.rol.model.Rol;
 
@@ -26,6 +28,7 @@ public class Usuario extends Persona {
 	@Column(nullable = false, unique = true)
 	private String nombreUsuario;
 
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@Column(nullable = false)
 	private String password;
 
@@ -41,5 +44,14 @@ public class Usuario extends Persona {
 		this.roles = new ArrayList<Rol>();
 		this.activo = true;
 	}
+
+	// @JsonIgnore
+	// public String getPassword() {
+	// return this.password;
+	// }
+
+	// public void setPassword(String password) {
+	// this.password = password;
+	// }
 
 }

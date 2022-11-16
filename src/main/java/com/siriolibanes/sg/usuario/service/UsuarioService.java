@@ -58,7 +58,11 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public Usuario login(String email, String password) {
-		return usuarioRepository.login(email, password);
+		Usuario usuario = usuarioRepository.findOneByEmail(email);
+		if (passwordEncoder.matches(password, usuario.getPassword())) {
+			return usuario;
+		}
+		return null;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.siriolibanes.sg.reserva.model.dao;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 @Data
-public class ReservaDAO {
+public class ReservaDAO implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date fecha;
 

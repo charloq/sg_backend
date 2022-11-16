@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.siriolibanes.sg.rol.model.Rol;
-import com.siriolibanes.sg.usuario.model.LoginDAO;
 import com.siriolibanes.sg.usuario.model.Usuario;
+import com.siriolibanes.sg.usuario.model.dao.LoginDAO;
 import com.siriolibanes.sg.usuario.service.IUsuarioService;
 
 @RestController
