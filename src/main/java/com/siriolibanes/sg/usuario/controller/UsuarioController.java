@@ -47,10 +47,10 @@ public class UsuarioController {
 
 	@PostMapping(path = "/login")
 	public Usuario login(@RequestBody LoginDAO loginDAO) {
-		return service.login(loginDAO.getNombreUsuario(), loginDAO.getPassword());
+		return service.login(loginDAO.getEmail(), loginDAO.getPassword());
 	}
 
-	@DeleteMapping(path = "usuario/{id}")
+	@DeleteMapping(path = "/usuario/{id}")
 	public void deleteUsuario(@PathVariable("id") Long id) {
 		service.deleteUsuario(id);
 	}
@@ -58,5 +58,15 @@ public class UsuarioController {
 	@GetMapping(path = "/roles")
 	public List<Usuario> findByRoles(@RequestBody Rol[] roles) {
 		return service.findByRoles(Arrays.asList(roles));
+	}
+
+	@PostMapping(path = "/activar/{id}")
+	public Usuario activarUsuario(@PathVariable("id") Long id) {
+		return service.activarUsuario(id);
+	}
+
+	@PostMapping(path = "/validar/{id}")
+	public Usuario validarUsuario(@PathVariable("id") Long id) {
+		return service.validarUsuario(id);
 	}
 }

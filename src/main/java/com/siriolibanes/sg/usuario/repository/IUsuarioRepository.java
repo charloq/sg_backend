@@ -13,15 +13,13 @@ import com.siriolibanes.sg.usuario.model.Usuario;
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	List<Usuario> findByNombreUsuario(String nombreUsuario);
+	List<Usuario> findByNombreUsuarioContainingIgnoreCase(String nombreUsuario);
 
 	@Query("select u from Usuario u where u.email = :email")
 	Usuario findOneByEmail(@Param("email") String email);
 
 	@Query("select u from Usuario u where u.email = :email and u.password = :password")
 	Usuario login(@Param("email") String email, @Param("password") String password);
-
-	Usuario getReferenceById(Long id);
 
 	List<Usuario> findByRolesIn(List<Rol> roles);
 }

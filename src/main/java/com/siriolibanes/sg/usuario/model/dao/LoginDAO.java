@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 public class LoginDAO implements Serializable {
-    private String nombreUsuario;
+    private String email;
     private String password;
 }

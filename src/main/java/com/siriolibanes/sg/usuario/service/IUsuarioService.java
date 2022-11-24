@@ -25,5 +25,7 @@ public interface IUsuarioService {
 
 	List<Usuario> findByRoles(List<Rol> roles);
 
-	public Usuario validarSocioInvitado(Long id);
+	public Usuario activarUsuario(Long id);
+
+	public Usuario validarUsuario(Long id);
 }

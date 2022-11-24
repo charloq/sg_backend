@@ -2,6 +2,7 @@ package com.siriolibanes.sg.usuario.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,7 +33,7 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public List<Usuario> findByNombreUsuario(String nombre) {
-		return usuarioRepository.findByNombreUsuario(nombre);
+		return usuarioRepository.findByNombreUsuarioContainingIgnoreCase(nombre);
 	}
 
 	@Override
@@ -67,7 +68,7 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public Usuario updateUsuario(Usuario usuario, Long id) {
-		Usuario unUsuario = usuarioRepository.getReferenceById(id);
+		Usuario unUsuario = findById(id);
 		if (unUsuario == null) {
 			// TODO: Ver si lanzar exception
 			return null;
@@ -82,12 +83,13 @@ public class UsuarioService implements IUsuarioService {
 		unUsuario.setFechaNacimiento(usuario.getFechaNacimiento());
 		unUsuario.setTelefono(usuario.getTelefono());
 
-		return unUsuario;
+		return usuarioRepository.save(unUsuario);
 	}
 
 	@Override
 	public Usuario findById(Long id) {
-		return usuarioRepository.findById(id).get();
+		return usuarioRepository.findById(id).orElse(null);
+
 	}
 
 	@Override
@@ -101,17 +103,27 @@ public class UsuarioService implements IUsuarioService {
 	}
 
 	@Override
-	public Usuario validarSocioInvitado(Long id) {
+	public Usuario activarUsuario(Long id) {
+		Usuario usuario = findById(id);
+		if (usuario == null) {
+			throw new IllegalArgumentException("No existe usuario para ese ID");
+		}
+		usuario.setActivo(!usuario.getActivo());
+		return usuarioRepository.save(usuario);
+	}
+
+	@Override
+	public Usuario validarUsuario(Long id) {
 		Usuario usuario = findById(id);
 		if (usuario == null) {
 			throw new IllegalArgumentException("No existe usuario para ese ID");
 		}
 		usuario.getRoles().forEach((Rol rol) -> {
 			if (rol.getAutoridad().equals(RolEnum.INVITADO.name())) {
-				// TODO: Validar que rol se debe asignar
-				rol.setAutoridad(RolEnum.ADMIN.name());
+				rol.setAutoridad(RolEnum.SOCIO.name());
 			}
 		});
-		return usuario;
+		return usuarioRepository.save(usuario);
 	}
+
 }
