@@ -23,4 +23,6 @@ public interface IReservaService {
     List<Reserva> findAll();
 
     Reserva saveReserva(ReservaDAO reserva);
+
+    List<Reserva> findVigentes();
 }

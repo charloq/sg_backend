@@ -69,4 +69,9 @@ public class UsuarioController {
 	public Usuario validarUsuario(@PathVariable("id") Long id) {
 		return service.validarUsuario(id);
 	}
+
+	@GetMapping(path = "/nombre/{nombre}")
+	public List<Usuario> findByNombre(@PathVariable("nombre") String nombre) {
+		return service.findByNombre(nombre);
+	}
 }

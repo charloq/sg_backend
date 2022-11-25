@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.siriolibanes.sg.reserva.model.Reserva;
@@ -20,4 +21,7 @@ public interface IReservaRepository extends JpaRepository<Reserva, Long> {
     List<Reserva> findBySalon(Salon salon);
 
     List<Reserva> findByFechaAndSalon(Date fecha, Salon salon);
+
+    @Query("select r from Reserva r where r.fecha > getdate()")
+    List<Reserva> findVigentes();
 }

@@ -22,4 +22,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 	Usuario login(@Param("email") String email, @Param("password") String password);
 
 	List<Usuario> findByRolesIn(List<Rol> roles);
+
+	@Query("select u from Usuario u where u.nombre like %:nombre%")
+	List<Usuario> findByNombre(@Param("nombre") String nombre);
 }

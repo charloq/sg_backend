@@ -28,4 +28,6 @@ public interface IUsuarioService {
 	public Usuario activarUsuario(Long id);
 
 	public Usuario validarUsuario(Long id);
+
+	public List<Usuario> findByNombre(String nombre);
 }

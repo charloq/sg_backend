@@ -54,4 +54,8 @@ public class ReservaController {
         return reservaService.findByUsuario(usuario);
     }
 
+    @GetMapping(path = "/vigentes")
+    public List<Reserva> findVigentes() {
+        return reservaService.findVigentes();
+    }
 }

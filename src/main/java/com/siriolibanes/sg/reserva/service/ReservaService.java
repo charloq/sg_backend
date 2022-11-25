@@ -99,4 +99,9 @@ public class ReservaService implements IReservaService {
 
         return reservaRepository.save(newReserva);
     }
+
+    @Override
+    public List<Reserva> findVigentes() {
+        return reservaRepository.findVigentes();
+    }
 }

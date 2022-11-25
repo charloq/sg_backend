@@ -126,4 +126,9 @@ public class UsuarioService implements IUsuarioService {
 		return usuarioRepository.save(usuario);
 	}
 
+	@Override
+	public List<Usuario> findByNombre(String nombre) {
+		return usuarioRepository.findByNombre(nombre);
+	}
+
 }
