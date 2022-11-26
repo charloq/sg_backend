@@ -12,9 +12,9 @@ public class ReservaDAO implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date fecha;
 
-    private Long usuarioID;
+    private Long usuario;
 
-    private Long salonID;
+    private Long salon;
 
     private String descripcion;
 }

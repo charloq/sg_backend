@@ -73,12 +73,12 @@ public class ReservaService implements IReservaService {
     public Reserva saveReserva(ReservaDAO reserva) {
         // Valido reserva no sea del pasado
         Date today = new Date();
-        if (reserva.getFecha().compareTo(today) < 0) {
+        if (reserva.getFecha().before(today)) {
             return null;
         }
 
-        Usuario usuario = usuarioService.findById(reserva.getUsuarioID());
-        Salon salon = salonService.findById(reserva.getSalonID());
+        Usuario usuario = usuarioService.findById(reserva.getUsuario());
+        Salon salon = salonService.findById(reserva.getSalon());
 
         // Valido existencia de usuario y salon
         if (usuario == null || salon == null) {
