@@ -46,6 +46,7 @@ public class UsuarioService implements IUsuarioService {
 			usuario.setRoles(new ArrayList<Rol>());
 			usuario.getRoles().add(rol);
 		}
+		usuario.setNombreUsuario(usuario.getEmail());
 		// TODO: Ver si Jugador debería ser un rol y/o tipo de Usuario
 		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 
