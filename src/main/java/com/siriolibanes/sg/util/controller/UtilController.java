@@ -18,4 +18,14 @@ public class UtilController {
     public String[] getCiudades() {
         return utilService.getCiudades();
     }
+
+    @GetMapping(path = "/deportes")
+    public String[] getDeportes() {
+        return utilService.getDeportes();
+    }
+
+    @GetMapping(path = "/categorias")
+    public String[] getCategorias() {
+        return utilService.getCategorias();
+    }
 }

@@ -44,13 +44,4 @@ public class Usuario extends Persona {
 		this.activo = true;
 	}
 
-	// @JsonIgnore
-	// public String getPassword() {
-	// return this.password;
-	// }
-
-	// public void setPassword(String password) {
-	// this.password = password;
-	// }
-
 }

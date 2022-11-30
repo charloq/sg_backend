@@ -22,6 +22,6 @@ public interface IReservaRepository extends JpaRepository<Reserva, Long> {
 
     List<Reserva> findByFechaAndSalon(Date fecha, Salon salon);
 
-    @Query("select r from Reserva r where r.fecha > getdate()")
+    @Query("select r from Reserva r ")
     List<Reserva> findVigentes();
 }
