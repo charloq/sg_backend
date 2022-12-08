@@ -28,4 +28,9 @@ public class UtilController {
     public String[] getCategorias() {
         return utilService.getCategorias();
     }
+
+    @GetMapping(path = "/sexos")
+    public String[] getSexos() {
+        return utilService.getSexos();
+    }
 }

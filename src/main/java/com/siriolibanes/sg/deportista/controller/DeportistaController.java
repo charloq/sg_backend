@@ -52,4 +52,13 @@ public class DeportistaController {
         return deportistaService.activarDeportista(id);
     }
 
+    @GetMapping(path = "/nombre/{nombre}")
+    public List<Deportista> findByNombre(@PathVariable("nombre") String nombre) {
+        return deportistaService.findByNombre(nombre);
+    }
+
+    @GetMapping(path = "/categoria/{categoria}")
+    public List<Deportista> findByCategoria(@PathVariable("categoria") String categoria) {
+        return deportistaService.findByCategoria(categoria);
+    }
 }

@@ -1,9 +1,11 @@
 package com.siriolibanes.sg.util.service;
 
 public interface IUtilService {
-    public String[] getCiudades();
+    String[] getCiudades();
 
-    public String[] getDeportes();
+    String[] getDeportes();
 
-    public String[] getCategorias();
+    String[] getCategorias();
+
+    String[] getSexos();
 }

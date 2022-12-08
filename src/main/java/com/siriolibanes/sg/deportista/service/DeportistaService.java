@@ -36,6 +36,7 @@ public class DeportistaService implements IDeportistaService {
         deportistaToUpdate.setActivo(deportista.getActivo());
         deportistaToUpdate.setCategoria(deportista.getCategoria());
         deportistaToUpdate.setDeporte(deportista.getDeporte());
+        deportistaToUpdate.setSexo(deportista.getSexo());
         return deportistaRepository.save(deportista);
     }
 
@@ -67,6 +68,16 @@ public class DeportistaService implements IDeportistaService {
         }
         deportista.setActivo(!deportista.getActivo());
         return deportistaRepository.save(deportista);
+    }
+
+    @Override
+    public List<Deportista> findByNombre(String nombre) {
+        return deportistaRepository.findByNombre(nombre);
+    }
+
+    @Override
+    public List<Deportista> findByCategoria(String categoria) {
+        return deportistaRepository.findByCategoria(categoria);
     }
 
 }

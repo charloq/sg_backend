@@ -19,4 +19,9 @@ public interface IDeportistaService {
     public Deportista findById(Long id);
 
     public Deportista activarDeportista(Long id);
+
+    public List<Deportista> findByNombre(String nombre);
+
+    public List<Deportista> findByCategoria(String categoria);
+
 }

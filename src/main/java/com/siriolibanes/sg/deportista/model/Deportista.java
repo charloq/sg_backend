@@ -23,4 +23,7 @@ public class Deportista extends Persona {
 
     @Column(nullable = false)
     private Boolean activo = true;
+
+    @Column(nullable = false)
+    private String sexo;
 }
