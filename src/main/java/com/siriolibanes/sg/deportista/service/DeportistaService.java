@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.siriolibanes.sg.deportista.model.Deportista;
 import com.siriolibanes.sg.deportista.repository.IDeportistaRepository;
+import com.siriolibanes.sg.util.excel.IExcelGenerator;
 
 @Service
 public class DeportistaService implements IDeportistaService {
 
     @Autowired
     private IDeportistaRepository deportistaRepository;
+
+    @Autowired
+    private IExcelGenerator deportistaExcelGenerator;
 
     @Override
     public Deportista saveDeportista(Deportista deportista) {
@@ -78,6 +82,11 @@ public class DeportistaService implements IDeportistaService {
     @Override
     public List<Deportista> findByCategoria(String categoria) {
         return deportistaRepository.findByCategoria(categoria);
+    }
+
+    @Override
+    public void exportarExcel() {
+        deportistaExcelGenerator.generateExcelFile();
     }
 
 }

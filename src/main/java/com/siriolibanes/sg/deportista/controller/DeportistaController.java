@@ -61,4 +61,9 @@ public class DeportistaController {
     public List<Deportista> findByCategoria(@PathVariable("categoria") String categoria) {
         return deportistaService.findByCategoria(categoria);
     }
+
+    @GetMapping(path = "/exportar")
+    public void exportarDeportistas() {
+        deportistaService.exportarExcel();
+    }
 }
