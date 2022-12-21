@@ -85,8 +85,9 @@ public class DeportistaService implements IDeportistaService {
     }
 
     @Override
-    public void exportarExcel() {
+    public Boolean exportarExcel() {
         deportistaExcelGenerator.generateExcelFile();
+        return true;
     }
 
 }

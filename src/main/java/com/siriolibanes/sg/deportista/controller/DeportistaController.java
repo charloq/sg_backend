@@ -63,7 +63,7 @@ public class DeportistaController {
     }
 
     @GetMapping(path = "/exportar")
-    public void exportarDeportistas() {
-        deportistaService.exportarExcel();
+    public Boolean exportarDeportistas() {
+        return deportistaService.exportarExcel();
     }
 }

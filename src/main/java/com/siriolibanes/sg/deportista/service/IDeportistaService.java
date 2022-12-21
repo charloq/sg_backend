@@ -24,5 +24,5 @@ public interface IDeportistaService {
 
     public List<Deportista> findByCategoria(String categoria);
 
-    public void exportarExcel();
+    public Boolean exportarExcel();
 }

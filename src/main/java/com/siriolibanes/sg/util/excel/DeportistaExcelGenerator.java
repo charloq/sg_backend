@@ -27,7 +27,7 @@ public class DeportistaExcelGenerator implements IExcelGenerator {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
     private List<Deportista> deportistas;
-    private static String fileName = "Listado_Deportistas_";
+    private static String fileName = "src/main/resources/export/Listado_Deportistas_";
     private static String fileExtension = ".xlsx";
 
     public DeportistaExcelGenerator() {
